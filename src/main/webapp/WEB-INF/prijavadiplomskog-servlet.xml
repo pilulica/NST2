@@ -1,0 +1,47 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans     
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/mvc 
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context.xsd">
+ 
+ 	<mvc:annotation-driven />
+ 	
+ 	<mvc:resources mapping="/resources/style/**" location="/resources/style/" />
+	<mvc:resources mapping="/resources/js/**" location="/resources/js/" />
+ 
+        <context:component-scan base-package="com.nst.NstPrijava" />
+	<context:component-scan base-package="com.nst.NstPrijava.controller" />
+	<context:component-scan base-package="com.nst.NstPrijava.dao" /> 
+	<context:component-scan base-package="com.nst.NstPrijava.domen" />
+	<context:component-scan base-package="com.nst.NstPrijava.service" />
+        <context:component-scan base-package="com.nst.NstPrijava.service.impl" />
+ 	
+ 	<mvc:resources mapping="/resources/**" location="/WEB-INF/resources/"/>
+ 	
+ 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+ 		<property name="prefix" value="/WEB-INF/jsp/" />
+ 		<property name="suffix" value=".jsp" />
+ 	</bean> 
+ 	
+<!--  
+ 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="configLocation" value="classpath:mybatis.xml"/>
+        <property name="mapperLocations" value="classpath*:sqlmap/*.xml" />
+    </bean>
+ 
+ 	<bean id="loginDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+		<property name="mapperInterface" value="com.aviokarte.dao.loginDAO"/>
+	</bean>
+ 	
+    <bean id="loginService" class="com.aviokarte.service.impl.loginServiceImpl">
+		<property name="loginDAO" ref="loginDAO"/>
+	</bean>
+  -->
+</beans>
